@@ -1,0 +1,5 @@
+package dev.bestzige.int202employeerecruitmentsystem.models;
+
+public enum JobPosition {
+    SOFTWARE_ENGINEER, SOFTWARE_DEVELOPER, SOFTWARE_ARCHITECT, SOFTWARE_TESTER, SOFTWARE_ANALYST, SOFTWARE_MANAGER, SOFTWARE_INTERN
+}
