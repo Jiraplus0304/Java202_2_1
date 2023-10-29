@@ -40,3 +40,30 @@ in cycle servlet , which step invoke DOGET & DOPOST -> Serving Request
 ถ้าคุณเรียกใช้ URL ผิด หรือ URL ที่ไม้่มีไฟล์หรือ servlet จะเป็นอย่างไร -> Page 404
 วิธีใดที่ใช้รับข้อมูลสำหรับ text field ในข้อความ string นี้ = request.getParameter("name") -> getParameter("String")
 วิธีใดที่ใช้สำหรับการแชร์ตัวแปรหรือ object ระหว่างหลาย page or multiple servlet -> setAttribute(String name , Object Value)
+
+-----------------
+วิธีการที่ดีกว่าระหว่าง sendRedirect() และ RequestDispatcher ขึ้นอยู่กับความต้องการของแอปพลิเคชันของคุณและสภาพแวดล้อมการพัฒนาของคุณ:
+
+sendRedirect():
+เมื่อใช้: sendRedirect() มักถูกใช้เมื่อคุณต้องการเปลี่ยน URL ทั้งหมดและจะเริ่มคำขอใหม่ในเบราวเซอร์ของผู้ใช้.
+เมื่อเหมาะสม: ใช้ sendRedirect() เมื่อคุณต้องการเปลี่ยน URL ทั้งหมดและต้องการสร้าง URL ภายนอกโดเมนปัจจุบัน (ยกตัวอย่างเช่นการนำทางไปยังเว็บไซต์อื่น).
+RequestDispatcher:
+เมื่อใช้: RequestDispatcher มักถูกใช้เมื่อคุณต้องการแสดงหน้าใหม่ในโดเมนเดียวกันโดยยังคงใช้คำขอ (request) เดิม.
+เมื่อเหมาะสม: ใช้ RequestDispatcher เมื่อคุณต้องการแสดงหน้าใหม่โดยไม่ต้องสร้างคำขอใหม่ (ยกตัวอย่างเช่นเมื่อคุณต้องการแสดงหน้าผลลัพธ์หลังจากการกรอกแบบฟอร์ม).
+สรุปคือ, sendRedirect() และ RequestDispatcher มีการใช้งานแตกต่างกันและเหมาะกับสถานการณ์ที่แตกต่างกัน. คุณควรเลือกวิธีที่เหมาะสมกับความต้องการของโปรเจกต์และวัตถุประสงค์ของคุณ.
+//Redirect
+if (username.equals("admin") && password.equals("password")) {
+    response.sendRedirect("home.jsp");
+} else {
+    response.sendRedirect("login.jsp?error=1");
+}
+
+--------------------
+//RequestDispatcher
+if (username.equals("admin") && password.equals("password")) {
+    RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
+    dispatcher.forward(request, response);
+} else {
+    response.sendRedirect("login.jsp?error=1");
+}
+
