@@ -16,7 +16,7 @@
 <form action="user-session" method="post">
     <label>Username</label>
     <input type="text" name="username">
-
+<%-- input username & password --%>
     <label>Password</label>
     <input type="password" name="password">
 

@@ -14,6 +14,7 @@
 <body>
 <h1>Profile Cookie</h1>
 <h1>Raw Cookie: ${cookie.user.value}</h1>
+<%-- username , password --%>
 <h2>
     Username: ${requestScope.user.username}<br>
 </h2>
