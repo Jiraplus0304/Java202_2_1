@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="classic-models">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+<!--        &#45;&#45; add class example below &#45;&#45;-->
+<!--&lt;!&ndash;        <class>sit.int202.classicmodels.entities.Office</class>&ndash;&gt;-->
+<!--&lt;!&ndash;        <class>sit.int202.classicmodels.entities.Employee</class>&ndash;&gt;-->
+<!--        &#45;&#45;-->
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/classicmodels"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="butter0025_P"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
